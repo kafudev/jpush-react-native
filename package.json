@@ -1,22 +1,38 @@
 {
-  "name": "jpush-react-native",
+  "name": "@kafudev/jpush-react-native",
   "description": "React Native JPush component for Android and iOS",
-  "homepage":"https://github.com/jpush/jpush-react-native",
+  "homepage":"https://github.com/kafudev/jpush-react-native",
   "main": "index.js",
   "types": "index.d.ts",
   "license": "ISC",
   "author": "wicked.tc130",
-  "version": "2.8.2",
+  "version": "2.0.2",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jpush/jpush-react-native"
+    "url": "https://github.com/kafudev/jpush-react-native"
   },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  },
+  "files": [
+    "src",
+    "lib",
+    "android",
+    "ios",
+    "JPush.podspec",
+    "!android/build",
+    "!ios/build",
+    "!**/__tests__",
+    "!**/__fixtures__",
+    "!**/__mocks__"
+  ],
   "keywords": [
     "react-native",
     "JPush"
   ],
   "peerDependencies": {
-    "jcore-react-native": ">= 1.5.0",
+    "@kafudev/jcore-react-native": "2.0.1",
     "react-native": ">= 0.50"
   }
 }

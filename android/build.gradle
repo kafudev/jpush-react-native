@@ -13,9 +13,36 @@ android {
         versionName "1.0"
 
     }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
+    }
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.facebook.react:react-native:+'
+
+    //huawei_dependencies_start
+    //华为请按照厂商文档配置主 gradle 华为镜像依赖和添加 agconnect-services.json 后再打开此依赖
+    implementation 'com.huawei.hms:push:5.0.2.300'
+    //huawei_dependencies_end
+
+    //oppo_dependencies_start
+    compileOnly files('./libs/com.heytap.msp-push-2.1.0.aar')
+    //oppo_dependencies_end
 }
