@@ -37,6 +37,11 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.facebook.react:react-native:+'
 
+    //fcm_dependencies_start
+    //谷歌请按照厂商文档配置主 gradle 谷歌镜像依赖和添加 google-services.json 后再打开此依赖
+    // implementation 'com.google.firebase:firebase-messaging:21.1.0'
+    //fcm_dependencies_end
+
     //huawei_dependencies_start
     //华为请按照厂商文档配置主 gradle 华为镜像依赖和添加 agconnect-services.json 后再打开此依赖
     implementation 'com.huawei.hms:push:5.0.2.300'
