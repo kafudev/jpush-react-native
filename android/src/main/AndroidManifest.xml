@@ -28,7 +28,14 @@
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
     <uses-permission android:name="android.permission.GET_TASKS"/>
     <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES"/>
-
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+    <!--honor_permission_start-->
+    <queries>
+        <intent>
+            <action android:name="com.hihonor.push.action.BIND_PUSH_SERVICE" />
+        </intent>
+    </queries>
+    <!--honor_permission_end-->
     <!--xiaomi_permission_start-->
     <permission
         android:name="${applicationId}.permission.MIPUSH_RECEIVE"
@@ -147,6 +154,19 @@
         </activity>
         <!-- since 3.5.6 新增华硕通道 -->
         <receiver android:name="cn.jpush.android.asus.AsusPushMessageReceiver" />
+        <provider
+            android:name="cn.jiguang.union.ads.service.JAdFileProvider"
+            android:authorities="${applicationId}.JAdFileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/jpush_file_paths" />
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.FileProvider" />
+                <category android:name="${applicationId}" />
+            </intent-filter>
+        </provider>
         <!--jpush_config_end-->
 
         <!--(jpush|jmessage)_config_start，jpush和jmessage公用的组件-->
@@ -166,6 +186,7 @@
                 <category android:name="${applicationId}" />
             </intent-filter>
         </receiver>
+
 
         <!--xiaomi_config_start-->
         <service
@@ -312,7 +333,19 @@
         <meta-data
             android:name="JPUSH_APPKEY"
             android:value="${JPUSH_APPKEY}" /> <!-- </>值来自开发者平台取得的AppKey -->
+        <!--honor_config_start-->
+        <service
+            android:name="cn.jpush.android.service.JHonorService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.hihonor.push.action.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
 
+        <meta-data
+            android:name="com.hihonor.push.app_id"
+            android:value="${HONOR_APPID}" />
+        <!--honor_config_end-->
     </application>
 </manifest>
 

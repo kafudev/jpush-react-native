@@ -5,12 +5,12 @@ def safeExtGet(prop, fallback) {
 }
 
 android {
-    compileSdkVersion 29
-    buildToolsVersion "29.0.0"
+    compileSdkVersion safeExtGet('jpush_compileSdkVersion', 29)
+    buildToolsVersion safeExtGet('jpush_buildToolsVersion', '29.0.2')
 
     defaultConfig {
-        minSdkVersion 21
-        targetSdkVersion 29
+        minSdkVersion safeExtGet('jpush_minSdkVersion', 21)
+        targetSdkVersion safeExtGet('jpush_targetSdkVersion', 29)
         versionCode 1
         versionName "1.0"
 
@@ -41,15 +41,25 @@ dependencies {
 
     //fcm_dependencies_start
     //谷歌请按照厂商文档配置主 gradle 谷歌镜像依赖和添加 google-services.json 后再打开此依赖
-    // implementation 'com.google.firebase:firebase-messaging:21.1.0'
+    // implementation 'com.google.firebase:firebase-messaging:23.0.5'
     //fcm_dependencies_end
 
     //huawei_dependencies_start
     //华为请按照厂商文档配置主 gradle 华为镜像依赖和添加 agconnect-services.json 后再打开此依赖
-    implementation 'com.huawei.hms:push:5.0.2.300'
+    implementation 'com.huawei.hms:push:6.5.0.300'
     //huawei_dependencies_end
 
+    //honor_dependencies_start
+    compileOnly files('./libs/HiPushSdk-v6.0.4.101-release.aar')
+    compileOnly files('./libs/HiPushSdkCommon-v6.0.4.101-release.aar')
+    //honor_dependencies_end
+
     //oppo_dependencies_start
-    compileOnly files('./libs/com.heytap.msp-push-2.1.0.aar')
+    //oppo 厂商 aar 需要单独引入
+    compileOnly files('./libs/com.heytap.msp-push-3.0.0.aar')
     //oppo_dependencies_end
+    //以下为 OPPO 3.0.0 aar需要依赖
+    implementation 'com.google.code.gson:gson:2.6.2'
+    implementation 'commons-codec:commons-codec:1.6'
+    implementation 'androidx.annotation:annotation:1.1.0'
 }
