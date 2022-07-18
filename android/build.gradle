@@ -5,12 +5,12 @@ def safeExtGet(prop, fallback) {
 }
 
 android {
-    compileSdkVersion safeExtGet('jpush_compileSdkVersion', 29)
-    buildToolsVersion safeExtGet('jpush_buildToolsVersion', '29.0.2')
-
+    compileSdkVersion safeExtGet('compileSdkVersion', 29)
+    compileSdkVersion safeExtGet('buildToolsVersion', '29.0.2')
+    
     defaultConfig {
-        minSdkVersion safeExtGet('jpush_minSdkVersion', 21)
-        targetSdkVersion safeExtGet('jpush_targetSdkVersion', 29)
+        minSdkVersion safeExtGet('minSdkVersion', 21)
+        targetSdkVersion safeExtGet('targetSdkVersion', 29)
         versionCode 1
         versionName "1.0"
 
@@ -38,7 +38,7 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.facebook.react:react-native:+'
-
+    
     //fcm_dependencies_start
     //谷歌请按照厂商文档配置主 gradle 谷歌镜像依赖和添加 google-services.json 后再打开此依赖
     // implementation 'com.google.firebase:firebase-messaging:23.0.5'

@@ -187,6 +187,28 @@
             </intent-filter>
         </receiver>
 
+        <!-- since 4.6.0 Required SDK核心功能 -->
+        <activity
+            android:name="cn.android.service.JTransitActivity"
+            android:exported="true"
+            android:taskAffinity="jpush.custom"
+            android:theme="@style/JPushTheme" >
+            <intent-filter>
+                <action android:name="cn.android.service.JTransitActivity" />
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="${applicationId}" />
+            </intent-filter>
+        </activity>
+        <activity android:name="cn.jpush.android.service.DActivity"
+            android:enabled="true"
+            android:exported="true"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:taskAffinity="jpush.custom">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.DActivity"/>
+                <category android:name="${applicationId}" />
+            </intent-filter>
+        </activity>
 
         <!--xiaomi_config_start-->
         <service
