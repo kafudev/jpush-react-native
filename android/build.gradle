@@ -26,6 +26,7 @@ android {
         flatDir {
             dirs 'libs'
         }
+        maven { url 'https://developer.hihonor.com/repo/' }
     }
 
     sourceSets {
@@ -50,8 +51,9 @@ dependencies {
     //huawei_dependencies_end
 
     //honor_dependencies_start
-    implementation(name: 'HiPushSdk-v6.0.4.101-release', ext: 'aar')
-    implementation(name: 'HiPushSdkCommon-v6.0.4.101-release', ext: 'aar')
+    implementation 'com.hihonor.mcs:push:6.0.4.101'
+    // implementation(name: 'HiPushSdk-v6.0.4.101-release', ext: 'aar')
+    // implementation(name: 'HiPushSdkCommon-v6.0.4.101-release', ext: 'aar')
     // compileOnly files('./libs/HiPushSdk-v6.0.4.101-release.aar')
     // compileOnly files('./libs/HiPushSdkCommon-v6.0.4.101-release.aar')
     //honor_dependencies_end
