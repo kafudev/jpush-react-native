@@ -50,13 +50,16 @@ dependencies {
     //huawei_dependencies_end
 
     //honor_dependencies_start
-    compileOnly files('./libs/HiPushSdk-v6.0.4.101-release.aar')
-    compileOnly files('./libs/HiPushSdkCommon-v6.0.4.101-release.aar')
+    implementation(name: 'HiPushSdk-v6.0.4.101-release', ext: 'aar')
+    implementation(name: 'HiPushSdkCommon-v6.0.4.101-release', ext: 'aar')
+    // compileOnly files('./libs/HiPushSdk-v6.0.4.101-release.aar')
+    // compileOnly files('./libs/HiPushSdkCommon-v6.0.4.101-release.aar')
     //honor_dependencies_end
 
     //oppo_dependencies_start
     //oppo 厂商 aar 需要单独引入
-    compileOnly files('./libs/com.heytap.msp-push-3.0.0.aar')
+    implementation(name: 'com.heytap.msp-push-3.0.0', ext: 'aar')
+    // compileOnly files('./libs/com.heytap.msp-push-3.0.0.aar')
     //oppo_dependencies_end
     //以下为 OPPO 3.0.0 aar需要依赖
     implementation 'com.google.code.gson:gson:2.6.2'
