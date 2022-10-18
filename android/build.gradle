@@ -42,12 +42,12 @@ dependencies {
     
     //fcm_dependencies_start
     //谷歌请按照厂商文档配置主 gradle 谷歌镜像依赖和添加 google-services.json 后再打开此依赖
-    implementation 'com.google.firebase:firebase-messaging:23.0.5'
+    // implementation 'com.google.firebase:firebase-messaging:23.0.5'
     //fcm_dependencies_end
 
     //huawei_dependencies_start
     //华为请按照厂商文档配置主 gradle 华为镜像依赖和添加 agconnect-services.json 后再打开此依赖
-    implementation 'com.huawei.hms:push:6.5.0.300'
+    // implementation 'com.huawei.hms:push:6.5.0.300'
     //huawei_dependencies_end
 
     //honor_dependencies_start
