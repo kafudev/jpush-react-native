@@ -347,8 +347,6 @@
         <!--vivo_config_end-->
 
 
-
-
         <!--Required_config-->
         <meta-data
             android:name="JPUSH_CHANNEL"
